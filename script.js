@@ -6,23 +6,27 @@ const totalPriceSpan = document.getElementById("total-price");
 
 let totalPrice = 0;
 
+// Button state starts as disabled to prevent adding empty items
+addProductButton.disabled = true;
+
 //edge case - prevent empty price and name inputs by disabling the button if either input is empty
-productNameInput.addEventListener("input", function() {
-  addProductButton.disabled = productNameInput.value.trim() === "" || productPriceInput.value.trim() === "";
+productNameInput.addEventListener("input", function () {
+  addProductButton.disabled =
+    productNameInput.value.trim() === "" ||
+    productPriceInput.value.trim() === "";
 });
 
-productPriceInput.addEventListener("input", function() {
-  addProductButton.disabled = productNameInput.value.trim() === "" || productPriceInput.value.trim() === "";
+productPriceInput.addEventListener("input", function () {
+  addProductButton.disabled =
+    productNameInput.value.trim() === "" ||
+    productPriceInput.value.trim() === "";
 });
-
 
 // Event listener for adding a product
 addProductButton.addEventListener("click", function () {
   ///Get input value
   const inputText = productNameInput.value;
   const inputPrice = productPriceInput.value;
-
-
 
   ///Create new list item
   const newLI = document.createElement("li");
